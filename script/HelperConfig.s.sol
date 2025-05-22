@@ -30,7 +30,10 @@ contract HelperConfig is Script {
     }
 
     function setUp() public {
-        todoListAddress = address(new todoList(activeConfig.owner, activeConfig.minPayment, activeConfig.maxTasks));
+        address OWNER_ADDRESS=0xd08ae577D973648f708B7cBFBBF112948F1Ea3fa;
+        vm.startBroadcast(OWNER_ADDRESS);
+        todoList todo = new todoList(OWNER_ADDRESS, activeConfig.minPayment, activeConfig.maxTasks);
+        vm.stopBroadcast();
     }
 
     function getAnvilConfig() public returns (TodoConfig memory) {
