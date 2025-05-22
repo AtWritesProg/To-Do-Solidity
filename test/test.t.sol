@@ -53,7 +53,6 @@ contract TodoList is Test {
     // assertGt(ownerBalAfter, ownerBalBefore);
     // }
 
-
     function testAddTaskWithMaxTasks() public {
         for (uint256 i = 0; i < todo.maxTasks(); i++) {
             todo.AddTask{value: value}("Test Task");
