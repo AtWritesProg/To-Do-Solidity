@@ -11,8 +11,9 @@ contract TodoList is Test {
     uint256 private constant value = 0.001 ether;
 
     function setUp() public {
-        todo = new todoList(vm.envAddress("OWNER_ADDRESS"), 0.0001 ether, 100);
+        todo = new todoList(0xd08ae577D973648f708B7cBFBBF112948F1Ea3fa, 0.0001 ether, 100);
         owner = todo._owner();
+
     }
 
     function testAddTask() public {
