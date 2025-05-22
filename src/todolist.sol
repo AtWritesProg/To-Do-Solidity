@@ -12,8 +12,8 @@ contract todoList {
     mapping(uint256 => Task) public tasks;
 
     address public _owner;
-    uint256 public minPayment;
-    uint256 public maxTasks;
+    uint256 public minPayment=0.0001 ether;
+    uint256 public maxTasks=100;
 
     constructor(address owner_, uint256 minPay, uint256 maxT) {
         _owner = owner_;
@@ -27,7 +27,8 @@ contract todoList {
     }
 
     function AddTask(string memory _task) public payable {
-        require(msg.value >= minPayment, "Minimum ether required");
+        require(msg.value >= minPayment, "Minimum 0.00001 ether required");
+
         require(taskCount < maxTasks, "Task limit reached");
         taskCount++;
         tasks[taskCount] = Task(taskCount, _task, false);

@@ -25,8 +25,8 @@ contract TodoList is Test {
 
     function testAddTaskWithInsufficientValue() public {
         string memory task = "Test Task";
-        vm.expectRevert("Minimum 0.0001 ether required");
-        todo.AddTask{value: 0.000001 ether}(task);
+        vm.expectRevert("Minimum 0.00001 ether required");
+        todo.AddTask{value: 0.00000001 ether}(task);
     }
 
     function testOnlyOwner() public {
