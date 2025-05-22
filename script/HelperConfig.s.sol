@@ -10,8 +10,8 @@ contract HelperConfig is Script {
 
     struct TodoConfig {
         uint256 minPayment; // Minimum ether to add a task
-        uint256 maxTasks;   // Max allowed tasks
-        address owner;      // Owner address to deploy or test with
+        uint256 maxTasks; // Max allowed tasks
+        address owner; // Owner address to deploy or test with
     }
 
     TodoConfig public activeConfig;
@@ -28,11 +28,7 @@ contract HelperConfig is Script {
 
     function getSepoliaConfig() public view returns (TodoConfig memory) {
         // Will error if OWNER_ADDRESS env var is missing
-        return TodoConfig({
-            minPayment: 0.0001 ether,
-            maxTasks: 100,
-            owner: vm.envAddress("OWNER_ADDRESS")
-        });
+        return TodoConfig({minPayment: 0.0001 ether, maxTasks: 100, owner: vm.envAddress("OWNER_ADDRESS")});
     }
 
     function getAnvilConfig() public returns (TodoConfig memory) {
@@ -46,11 +42,7 @@ contract HelperConfig is Script {
         vm.deal(owner, 10 ether); // Fund owner for tests
         vm.stopBroadcast();
 
-        return TodoConfig({
-            minPayment: 0.001 ether,
-            maxTasks: 100,
-            owner: owner
-        });
+        return TodoConfig({minPayment: 0.001 ether, maxTasks: 100, owner: owner});
     }
 
     function setUp() public {
