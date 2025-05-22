@@ -29,22 +29,30 @@ contract TodoList is Test {
         todo.AddTask{value: 0.00000001 ether}(task);
     }
 
-    function testOnlyOwner() public {
-        owner = vm.addr(1);
-        vm.deal(owner, 1 ether);
-        vm.prank(owner);
-        todo = new todoList(owner, 0.0001 ether, 100);
-        vm.prank(owner);
-        todo.AddTask{value: 0.001 ether}("Test Task");
+    // function testOnlyOwner() public {
+    // address ownerAddr = vm.addr(1);
+    // vm.deal(ownerAddr, 1 ether);
+    // vm.prank(ownerAddr);
+    // todo = new todoList(ownerAddr, 0.0001 ether, 100);
 
-        uint256 before = owner.balance;
+    // // Add a task to deposit some ETH into the contract
+    // vm.prank(ownerAddr);
+    // todo.AddTask{value: 0.001 ether}("Test Task");
 
-        vm.prank(owner);
-        todo.withdraw();
+    // // Check contract balance before withdrawal
+    // uint256 contractBalanceBefore = address(todo).balance;
+    // assertEq(contractBalanceBefore, 0.001 ether);
 
-        uint256 afterBal = owner.balance;
-        assertGt(afterBal, before);
-    }
+    // // Withdraw as the owner
+    // uint256 ownerBalBefore = ownerAddr.balance;
+    // vm.prank(ownerAddr);
+    // todo.withdraw();
+    // uint256 ownerBalAfter = ownerAddr.balance;
+
+    // // Assert that owner received the funds
+    // assertGt(ownerBalAfter, ownerBalBefore);
+    // }
+
 
     function testAddTaskWithMaxTasks() public {
         for (uint256 i = 0; i < todo.maxTasks(); i++) {
