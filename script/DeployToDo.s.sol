@@ -8,7 +8,7 @@ import {HelperConfig} from "./HelperConfig.s.sol";
 contract DeployTodo is Script {
     function run() external {
         HelperConfig config = new HelperConfig();
-        HelperConfig.TodoConfig memory active = config.getactiveConfig();
+        HelperConfig.TodoConfig memory active = config.getActiveConfig();
 
         vm.startBroadcast();
         todoList todo = new todoList(active.owner, active.minPayment, active.maxTasks);
