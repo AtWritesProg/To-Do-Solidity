@@ -13,7 +13,6 @@ contract TodoList is Test {
     function setUp() public {
         todo = new todoList(0xd08ae577D973648f708B7cBFBBF112948F1Ea3fa, 0.0001 ether, 100);
         owner = todo._owner();
-
     }
 
     function testAddTask() public {
