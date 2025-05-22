@@ -30,9 +30,9 @@ contract HelperConfig is Script {
     }
 
     function setUp() public {
-        address OWNER_ADDRESS=0xd08ae577D973648f708B7cBFBBF112948F1Ea3fa;
+        address OWNER_ADDRESS = 0xd08ae577D973648f708B7cBFBBF112948F1Ea3fa;
         vm.startBroadcast(OWNER_ADDRESS);
-        todoList todo = new todoList(OWNER_ADDRESS, activeConfig.minPayment, activeConfig.maxTasks);
+        // todoList todo = new todoList(OWNER_ADDRESS, activeConfig.minPayment, activeConfig.maxTasks);
         vm.stopBroadcast();
     }
 
