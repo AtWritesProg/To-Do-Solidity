@@ -16,7 +16,7 @@ contract todoList {
     uint256 public maxTasks=100;
 
     constructor(address owner_, uint256 minPay, uint256 maxT) {
-        _owner = owner_;
+        _owner = _owner;
         minPayment = minPay;
         maxTasks = maxT;
     }
