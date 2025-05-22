@@ -12,10 +12,10 @@ contract todoList {
     mapping(uint256 => Task) public tasks;
 
     address public _owner;
-    uint256 public minPayment=0.0001 ether;
-    uint256 public maxTasks=100;
+    uint256 public minPayment = 0.0001 ether;
+    uint256 public maxTasks = 100;
 
-    constructor(address owner_, uint256 minPay, uint256 maxT) {
+    constructor(address _owner, uint256 minPay, uint256 maxT) {
         _owner = _owner;
         minPayment = minPay;
         maxTasks = maxT;
